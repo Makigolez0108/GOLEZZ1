@@ -4,7 +4,220 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IT Portfolio Lab 3</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Import Google Font */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --primary-pink: #ff2a85;
+            --accent-pink: #ff75a0;
+            --primary-violet: #7b2cbf;
+            --light-violet: #9d4edd;
+            --bg-gradient: linear-gradient(135deg, #1a0b2e 0%, #24143a 50%, #32143b 100%);
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --text-main: #f3e8ff;
+            --text-muted: #d8b4fe;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 950px;
+            background: rgba(30, 15, 48, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 40px rgba(123, 44, 191, 0.15);
+        }
+
+        /* Header Styling */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, var(--primary-pink), var(--light-violet));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 600;
+        }
+
+        /* Main Area (Flexbox Layout) */
+        .main-area {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 25px;
+        }
+
+        .content {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Profile Card Styling */
+        .profile-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(255, 42, 133, 0.15);
+            border-color: rgba(255, 42, 133, 0.3);
+        }
+
+        .avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-pink);
+            box-shadow: 0 0 15px rgba(255, 42, 133, 0.4);
+        }
+
+        .profile-info h2 {
+            font-size: 1.4rem;
+            margin-bottom: 4px;
+        }
+
+        .profile-info p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .profile-info p.highlight {
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        /* Additional Text Box */
+        .additional-text {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 20px 24px;
+        }
+
+        .additional-text h3 {
+            font-size: 1.1rem;
+            color: var(--accent-pink);
+            margin-bottom: 8px;
+        }
+
+        .additional-text p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            flex: 1;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .sidebar h3 {
+            font-size: 1.1rem;
+            color: var(--accent-pink);
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .sidebar ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .sidebar a {
+            display: block;
+            text-decoration: none;
+            color: var(--text-main);
+            padding: 10px 14px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.03);
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .sidebar a:hover {
+            background: linear-gradient(135deg, var(--primary-pink), var(--primary-violet));
+            color: #ffffff;
+            transform: translateX(6px);
+            box-shadow: 0 4px 15px rgba(255, 42, 133, 0.3);
+        }
+
+        /* Footer Styling */
+        .footer {
+            text-align: center;
+            padding-top: 15px;
+            border-top: 1px solid var(--card-border);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Responsive Media Query for Mobile Devices */
+        @media (max-width: 768px) {
+            .main-area {
+                flex-direction: column;
+            }
+
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            .profile-card {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -21,7 +234,7 @@
                     <img src="https://live.adamson.edu.ph/legacy/primarypicavatar/getuserimg.php?x=102935_3" alt="Profile Avatar" class="avatar">
                     <div class="profile-info">
                         <h2>Mark Andrei Golez</h2>
-                        <p class="highlight"> IT Student</p>
+                        <p class="highlight">IT Student</p>
                         <p>Passionate about building responsive, user-friendly web applications and exploring modern cloud technologies.</p>
                     </div>
                 </div>
@@ -32,23 +245,4 @@
                 </div>
             </section>
 
-            aside class="sidebar">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Projects</a></li>
-                    <li><a href="#">Skills</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </aside>
-
-        </main>
-
-        <footer class="footer">
-            <p>&copy; 2025 — CSIT Lab</p>
-        </footer>
-
-    </div>
-
-</body>
-</html>
+            <aside class
