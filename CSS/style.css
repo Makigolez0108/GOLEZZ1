@@ -1,54 +1,190 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IT Portfolio Lab 3</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+/* --- Global Styles & Variables --- */
+:root {
+  --bg-color: #0f172a;
+  --card-bg: #1e293b;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --accent-color: #38bdf8;
+  --accent-hover: #0ea5e9;
+  --border-color: #334155;
+  --radius: 12px;
+}
 
-    <div class="container">
-        
-        <header class="header">
-            <h1>IT Portfolio <span class="highlight">Lab 3</span></h1>
-        </header>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-        <main class="main-area">
-            
-            <section class="content">
-                <div class="profile-card">
-                    <img src="https://live.adamson.edu.ph/legacy/primarypicavatar/getuserimg.php?x=102935_3" alt="Profile Avatar" class="avatar">
-                    <div class="profile-info">
-                        <h2>Mark Andrei Golez</h2>
-                        <p class="highlight"> IT Student</p>
-                        <p>Passionate about building responsive, user-friendly web applications and exploring modern cloud technologies.</p>
-                    </div>
-                </div>
-                
-                <div class="additional-text">
-                    <h3>About This Lab</h3>
-                    <p>This lab demonstrates the usage of CSS Flexbox, responsive design media queries, and modern component layout styling principles.</p>
-                </div>
-            </section>
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
 
-            aside class="sidebar">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Projects</a></li>
-                    <li><a href="#">Skills</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </aside>
+/* --- Layout Container --- */
+.container {
+  width: 100%;
+  max-width: 900px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
 
-        </main>
+/* --- Header --- */
+.header {
+  padding: 24px 32px;
+  border-bottom: 1px solid var(--border-color);
+  background: linear-gradient(to right, #1e293b, #0f172a);
+}
 
-        <footer class="footer">
-            <p>&copy; 2025 — CSIT Lab</p>
-        </footer>
+.header h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
 
-    </div>
+/* --- Main Area & Flexbox Layout --- */
+.main-area {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding: 32px;
+}
 
-</body>
-</html>
+.content {
+  flex: 2;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sidebar {
+  flex: 1;
+  min-width: 200px;
+  background-color: rgba(15, 23, 42, 0.4);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 24px;
+  height: fit-content;
+}
+
+/* --- Profile Card Component --- */
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: rgba(15, 23, 42, 0.3);
+  border: 1px solid var(--border-color);
+  padding: 24px;
+  border-radius: var(--radius);
+}
+
+.avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent-color);
+}
+
+.profile-info h2 {
+  font-size: 1.25rem;
+  margin-bottom: 4px;
+}
+
+.profile-info p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* --- Additional Text Section --- */
+.additional-text {
+  background-color: rgba(15, 23, 42, 0.3);
+  border: 1px solid var(--border-color);
+  padding: 20px;
+  border-radius: var(--radius);
+}
+
+.additional-text h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  color: var(--text-main);
+}
+
+.additional-text p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* --- Sidebar Navigation --- */
+.sidebar h3 {
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 8px;
+}
+
+.sidebar ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebar a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 500;
+  display: block;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.2s ease-in-out;
+}
+
+.sidebar a:hover {
+  color: var(--text-main);
+  background-color: rgba(56, 189, 248, 0.1);
+  padding-left: 16px;
+}
+
+/* --- Footer --- */
+.footer {
+  padding: 16px 32px;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  background-color: rgba(15, 23, 42, 0.2);
+}
+
+/* --- Utility Classes --- */
+.highlight {
+  color: var(--accent-color);
+}
+
+/* --- Responsive Media Queries --- */
+@media (max-width: 650px) {
+  body {
+    padding: 10px;
+  }
+  
+  .profile-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .main-area {
+    padding: 16px;
+  }
+}
