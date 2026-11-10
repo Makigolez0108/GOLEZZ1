@@ -1,190 +1,213 @@
 /* --- Global Styles & Variables --- */
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 :root {
-  --bg-color: #0f172a;
-  --card-bg: #1e293b;
-  --text-main: #f8fafc;
-  --text-muted: #94a3b8;
-  --accent-color: #38bdf8;
-  --accent-hover: #0ea5e9;
-  --border-color: #334155;
-  --radius: 12px;
+    --primary-pink: #ff2a85;
+    --accent-pink: #ff75a0;
+    --primary-violet: #7b2cbf;
+    --light-violet: #9d4edd;
+    --bg-gradient: linear-gradient(135deg, #1a0b2e 0%, #24143a 50%, #32143b 100%);
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --text-main: #f3e8ff;
+    --text-muted: #d8b4fe;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-main);
-  line-height: 1.6;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg-gradient);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
-/* --- Layout Container --- */
 .container {
-  width: 100%;
-  max-width: 900px;
-  background-color: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
+    width: 100%;
+    max-width: 950px;
+    background: rgba(30, 15, 48, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 40px rgba(123, 44, 191, 0.15);
 }
 
-/* --- Header --- */
+/* Header Styling */
 .header {
-  padding: 24px 32px;
-  border-bottom: 1px solid var(--border-color);
-  background: linear-gradient(to right, #1e293b, #0f172a);
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--card-border);
 }
 
 .header h1 {
-  font-size: 1.75rem;
-  font-weight: 700;
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
 }
 
-/* --- Main Area & Flexbox Layout --- */
+.highlight {
+    background: linear-gradient(135deg, var(--primary-pink), var(--light-violet));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+}
+
+/* Main Area (Flexbox Layout) */
 .main-area {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  padding: 32px;
+    display: flex;
+    gap: 24px;
+    margin-bottom: 25px;
 }
 
 .content {
-  flex: 2;
-  min-width: 280px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-.sidebar {
-  flex: 1;
-  min-width: 200px;
-  background-color: rgba(15, 23, 42, 0.4);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius);
-  padding: 24px;
-  height: fit-content;
-}
-
-/* --- Profile Card Component --- */
+/* Profile Card Styling */
 .profile-card {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  background-color: rgba(15, 23, 42, 0.3);
-  border: 1px solid var(--border-color);
-  padding: 24px;
-  border-radius: var(--radius);
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(255, 42, 133, 0.15);
+    border-color: rgba(255, 42, 133, 0.3);
 }
 
 .avatar {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid var(--accent-color);
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-pink);
+    box-shadow: 0 0 15px rgba(255, 42, 133, 0.4);
 }
 
 .profile-info h2 {
-  font-size: 1.25rem;
-  margin-bottom: 4px;
+    font-size: 1.4rem;
+    margin-bottom: 4px;
 }
 
 .profile-info p {
-  color: var(--text-muted);
-  font-size: 0.95rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.5;
 }
 
-/* --- Additional Text Section --- */
+.profile-info p.highlight {
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+/* Additional Text Box */
 .additional-text {
-  background-color: rgba(15, 23, 42, 0.3);
-  border: 1px solid var(--border-color);
-  padding: 20px;
-  border-radius: var(--radius);
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 20px 24px;
 }
 
 .additional-text h3 {
-  font-size: 1.1rem;
-  margin-bottom: 8px;
-  color: var(--text-main);
+    font-size: 1.1rem;
+    color: var(--accent-pink);
+    margin-bottom: 8px;
 }
 
 .additional-text p {
-  color: var(--text-muted);
-  font-size: 0.95rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
 }
 
-/* --- Sidebar Navigation --- */
+/* Sidebar Styling */
+.sidebar {
+    flex: 1;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 24px;
+}
+
 .sidebar h3 {
-  font-size: 1.1rem;
-  margin-bottom: 16px;
-  border-bottom: 1px solid var(--border-color);
-  padding-bottom: 8px;
+    font-size: 1.1rem;
+    color: var(--accent-pink);
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--card-border);
 }
 
 .sidebar ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .sidebar a {
-  color: var(--text-muted);
-  text-decoration: none;
-  font-weight: 500;
-  display: block;
-  padding: 8px 12px;
-  border-radius: 6px;
-  transition: all 0.2s ease-in-out;
+    display: block;
+    text-decoration: none;
+    color: var(--text-main);
+    padding: 10px 14px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
 }
 
 .sidebar a:hover {
-  color: var(--text-main);
-  background-color: rgba(56, 189, 248, 0.1);
-  padding-left: 16px;
+    background: linear-gradient(135deg, var(--primary-pink), var(--primary-violet));
+    color: #ffffff;
+    transform: translateX(6px);
+    box-shadow: 0 4px 15px rgba(255, 42, 133, 0.3);
 }
 
-/* --- Footer --- */
+/* Footer Styling */
 .footer {
-  padding: 16px 32px;
-  border-top: 1px solid var(--border-color);
-  text-align: center;
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  background-color: rgba(15, 23, 42, 0.2);
-}
-
-/* --- Utility Classes --- */
-.highlight {
-  color: var(--accent-color);
-}
-
-/* --- Responsive Media Queries --- */
-@media (max-width: 650px) {
-  body {
-    padding: 10px;
-  }
-  
-  .profile-card {
-    flex-direction: column;
     text-align: center;
-  }
-  
-  .main-area {
-    padding: 16px;
-  }
+    padding-top: 15px;
+    border-top: 1px solid var(--card-border);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* Responsive Media Query for Mobile Devices */
+@media (max-width: 768px) {
+    .main-area {
+        flex-direction: column;
+    }
+
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    .profile-card {
+        flex-direction: column;
+        text-align: center;
+    }
 }
